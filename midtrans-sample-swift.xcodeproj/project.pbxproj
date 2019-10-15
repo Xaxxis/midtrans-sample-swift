@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B00D100ECBCD84B2240B7994 /* Pods_midtrans_sample_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 971D7D92804A682ED783517B /* Pods_midtrans_sample_swift.framework */; };
 		C5EC819023506A8A006C3575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EC818F23506A8A006C3575 /* AppDelegate.swift */; };
 		C5EC819223506A8A006C3575 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EC819123506A8A006C3575 /* SceneDelegate.swift */; };
 		C5EC819423506A8A006C3575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EC819323506A8A006C3575 /* ViewController.swift */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F04DB93B285A8B142F896BD /* Pods-midtrans-sample-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midtrans-sample-swift.debug.xcconfig"; path = "Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift.debug.xcconfig"; sourceTree = "<group>"; };
+		77A34E88B8668F5E36DA2A91 /* Pods-midtrans-sample-swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-midtrans-sample-swift.release.xcconfig"; path = "Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift.release.xcconfig"; sourceTree = "<group>"; };
+		971D7D92804A682ED783517B /* Pods_midtrans_sample_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_midtrans_sample_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EC818C23506A8A006C3575 /* midtrans-sample-swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "midtrans-sample-swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5EC818F23506A8A006C3575 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5EC819123506A8A006C3575 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B00D100ECBCD84B2240B7994 /* Pods_midtrans_sample_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B61BF109C5DD60594E91099 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				971D7D92804A682ED783517B /* Pods_midtrans_sample_swift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C5EC818323506A8A006C3575 = {
 			isa = PBXGroup;
 			children = (
 				C5EC818E23506A8A006C3575 /* midtrans-sample-swift */,
 				C5EC818D23506A8A006C3575 /* Products */,
+				EB6D1A88CCFE2F720BECDA2A /* Pods */,
+				7B61BF109C5DD60594E91099 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,16 @@
 			path = "midtrans-sample-swift";
 			sourceTree = "<group>";
 		};
+		EB6D1A88CCFE2F720BECDA2A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F04DB93B285A8B142F896BD /* Pods-midtrans-sample-swift.debug.xcconfig */,
+				77A34E88B8668F5E36DA2A91 /* Pods-midtrans-sample-swift.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5EC81A023506A8F006C3575 /* Build configuration list for PBXNativeTarget "midtrans-sample-swift" */;
 			buildPhases = (
+				59C290C4320A251B08783C8E /* [CP] Check Pods Manifest.lock */,
 				C5EC818823506A8A006C3575 /* Sources */,
 				C5EC818923506A8A006C3575 /* Frameworks */,
 				C5EC818A23506A8A006C3575 /* Resources */,
+				565B8832AB32E95F3FB38CEA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		565B8832AB32E95F3FB38CEA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59C290C4320A251B08783C8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-midtrans-sample-swift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C5EC818823506A8A006C3575 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		C5EC81A123506A8F006C3575 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F04DB93B285A8B142F896BD /* Pods-midtrans-sample-swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +369,7 @@
 		};
 		C5EC81A223506A8F006C3575 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77A34E88B8668F5E36DA2A91 /* Pods-midtrans-sample-swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

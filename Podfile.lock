@@ -1,10 +1,10 @@
 PODS:
-  - MidtransCoreKit (1.16.0)
-  - MidtransKit (1.16.0):
-    - MidtransCoreKit (= 1.16.0)
-    - MidtransKit/UI (= 1.16.0)
-  - MidtransKit/UI (1.16.0):
-    - MidtransCoreKit (= 1.16.0)
+  - MidtransCoreKit (1.17.0)
+  - MidtransKit (1.17.0):
+    - MidtransCoreKit (= 1.17.0)
+    - MidtransKit/UI (= 1.17.0)
+  - MidtransKit/UI (1.17.0):
+    - MidtransCoreKit (= 1.17.0)
 
 DEPENDENCIES:
   - MidtransCoreKit

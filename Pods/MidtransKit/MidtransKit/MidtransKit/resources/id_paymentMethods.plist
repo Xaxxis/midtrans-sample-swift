@@ -212,6 +212,20 @@
 		<key>shortName</key>
 		<string>atm bni</string>
 	</dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>BRI</string>
+        <key>description</key>
+        <string>Bayar dari ATM BRI atau internet banking</string>
+        <key>id</key>
+        <string>bri_va</string>
+        <key>identifier</key>
+        <string>bri_va</string>
+        <key>shortName</key>
+        <string>atm bri</string>
+    </dict>
 	<dict>
 		<key>status</key>
 		<string>&quot;&quot;</string>
@@ -258,9 +272,9 @@
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>
-		<string>GO-PAY</string>
+		<string>GoPay</string>
 		<key>description</key>
-		<string>Bayar dengan GO-PAY</string>
+		<string>Bayar dengan GoPay</string>
 		<key>id</key>
 		<string>gopay</string>
 		<key>identifier</key>
@@ -296,5 +310,33 @@
 		<key>shortName</key>
 		<string>alfamart</string>
 	</dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>Shopeepay</string>
+        <key>description</key>
+        <string>Bayar dengan ShopeePay</string>
+        <key>id</key>
+        <string>shopeepay</string>
+        <key>identifier</key>
+        <string>shopeepay</string>
+        <key>shortName</key>
+        <string>shopeepay</string>
+    </dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>ShopeePay/e-Wallet Lainnya</string>
+        <key>description</key>
+        <string>Scan kode QR dengan ShopeePay atau e-wallet lainnya </string>
+        <key>id</key>
+        <string>qrisshopeepay</string>
+        <key>identifier</key>
+        <string>qrisshopeepay</string>
+        <key>shortName</key>
+        <string>shopeepay</string>
+    </dict>
 </array>
 </plist>

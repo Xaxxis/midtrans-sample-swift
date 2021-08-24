@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B00D100ECBCD84B2240B7994 /* Pods_midtrans_sample_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 971D7D92804A682ED783517B /* Pods_midtrans_sample_swift.framework */; };
+		C54D65A925DE45FC00461B6A /* Pods_midtrans_sample_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 971D7D92804A682ED783517B /* Pods_midtrans_sample_swift.framework */; };
 		C5EC819023506A8A006C3575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EC818F23506A8A006C3575 /* AppDelegate.swift */; };
 		C5EC819223506A8A006C3575 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EC819123506A8A006C3575 /* SceneDelegate.swift */; };
 		C5EC819423506A8A006C3575 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5EC819323506A8A006C3575 /* ViewController.swift */; };
@@ -35,7 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B00D100ECBCD84B2240B7994 /* Pods_midtrans_sample_swift.framework in Frameworks */,
+				C54D65A925DE45FC00461B6A /* Pods_midtrans_sample_swift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +88,6 @@
 				5F04DB93B285A8B142F896BD /* Pods-midtrans-sample-swift.debug.xcconfig */,
 				77A34E88B8668F5E36DA2A91 /* Pods-midtrans-sample-swift.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -103,7 +102,7 @@
 				C5EC818823506A8A006C3575 /* Sources */,
 				C5EC818923506A8A006C3575 /* Frameworks */,
 				C5EC818A23506A8A006C3575 /* Resources */,
-				565B8832AB32E95F3FB38CEA /* [CP] Copy Pods Resources */,
+				ACE0420D5158A5CA6277CF62 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,23 +160,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		565B8832AB32E95F3FB38CEA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		59C290C4320A251B08783C8E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,6 +180,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACE0420D5158A5CA6277CF62 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-midtrans-sample-swift/Pods-midtrans-sample-swift-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -285,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -339,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -354,16 +353,20 @@
 			baseConfigurationReference = 5F04DB93B285A8B142F896BD /* Pods-midtrans-sample-swift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZJL6NU37B9;
 				INFOPLIST_FILE = "midtrans-sample-swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.midtrans.midtrans-sample-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -372,16 +375,20 @@
 			baseConfigurationReference = 77A34E88B8668F5E36DA2A91 /* Pods-midtrans-sample-swift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ZJL6NU37B9;
 				INFOPLIST_FILE = "midtrans-sample-swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.midtrans.midtrans-sample-swift";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

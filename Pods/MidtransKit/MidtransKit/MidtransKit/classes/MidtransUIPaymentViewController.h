@@ -34,41 +34,37 @@
  static NSString * const MIDTRANS_PAYMENT_KIOS_ON = @"kioson";
  */
 typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
+    MidtransPaymentFeatureNone,
     MidtransPaymentFeatureCreditCard,
     MidtransPaymentFeatureBankTransfer,///va
     MidtransPaymentFeatureBankTransferBCAVA,
     MidtransPaymentFeatureBankTransferMandiriVA,
     MidtransPaymentFeatureBankTransferBNIVA,
+    MidtransPaymentFeatureBankTransferBRIVA,
     MidtransPaymentFeatureBankTransferPermataVA,
     MidtransPaymentFeatureBankTransferOtherVA,
     MidtransPaymentFeatureKlikBCA,
     MidtransPaymentFeatureIndomaret,
+    MidtransPaymentFeatureAlfamart,
     MidtransPaymentFeatureCIMBClicks,
-    MidtransPaymentFeatureCStore,
-    midtranspaymentfeatureBCAKlikPay,
-    MidtransPaymentFeatureMandiriEcash,
-    MidtransPaymentFeatureEchannel,
-    MidtransPaymentFeaturePermataVA,
+    MidtransPaymentFeatureBCAKlikPay,
     MidtransPaymentFeatureBRIEpay,
+    MidtransPaymentFeatureDanamonOnline,
     MidtransPaymentFeatureAkulaku,
-    MidtransPaymentFeatureTelkomselEcash,
-    MidtransPyamentFeatureDanamonOnline,
-    MidtransPaymentFeatureIndosatDompetku,
-    MidtransPaymentFeatureXLTunai,
-    MidtransPaymentFeatureMandiriClickPay,
-    MidtransPaymentFeatureKiosON,
-    MidtransPaymentFeatureGCI,
     MidtransPaymentFeatureGOPAY,
-    MidtransPaymentCreditCardForm
+    MidtransPaymentFeatureShopeePay
 };
 @class MidtransUIPaymentViewController;
 
 @protocol MidtransUIPaymentViewControllerDelegate;
 
 @protocol MidtransUIPaymentViewControllerDelegate <NSObject>
+@optional
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCard:(MidtransMaskedCreditCard *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCardFailed:(NSError *)error;
+@required
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result;
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentDeny:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error;
 - (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController;

@@ -19,11 +19,13 @@
 @property (nonatomic,strong) MidtransPromoPromoDetails *promos;
 @property (nonatomic)BOOL saveCreditCardOnly;
 @property (nonatomic)BOOL noCardHash;
+@property(nonatomic)MTCreditCardPaymentType tokenType;
+@property(nonatomic, nullable)NSString *bankName;
 @property (nonatomic, nullable) NSArray <MidtransMaskedCreditCard *>*currentMaskedCards;
 
 - (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
-                    paymentMethodName:(MidtransPaymentListModel *_Nonnull)paymentMethod
-                    andCreditCardData:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard
+                     paymentMethodName:(MidtransPaymentListModel *_Nonnull)paymentMethod
+                     andCreditCardData:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard
           andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *_Nonnull)responsePayment;
 - (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
                          paymentMethod:(MidtransPaymentListModel *_Nullable)paymentMethod

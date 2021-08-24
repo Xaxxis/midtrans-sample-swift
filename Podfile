@@ -7,11 +7,9 @@ target 'midtrans-sample-swift' do
 
   # Pods for midtrans-sample-swift
 
-  def shared_pods
-    pod 'MidtransKit'
-  end
 
-  target 'midtrans-sample-swift' do
-    shared_pods
-  end
+    pod 'MidtransKit'
+
+
+
 end

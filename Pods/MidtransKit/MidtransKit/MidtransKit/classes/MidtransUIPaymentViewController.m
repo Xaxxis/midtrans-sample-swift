@@ -23,12 +23,14 @@
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token paymentMethodName:nil];
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
     vc.paymentMethodSelected = nil;
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
     return self;
 }
 - (instancetype)initCreditCardForm {
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:nil paymentMethodName:nil];
     vc.paymentMethodSelected = MIDTRANS_CREDIT_CARD_FORM;
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
     return self;
 
 }
@@ -41,47 +43,29 @@
         case MidtransPaymentFeatureGOPAY:
             paymentMethodSelected = MIDTRANS_PAYMENT_GOPAY;
             break;
+        case MidtransPaymentFeatureShopeePay:
+            paymentMethodSelected = MIDTRANS_PAYMENT_SHOPEEPAY;
+            break;
         case MidtransPaymentFeatureBankTransfer:
             paymentMethodSelected = MIDTRANS_PAYMENT_BANK_TRANSFER;
             break;
         case MidtransPaymentFeatureKlikBCA:
             paymentMethodSelected = MIDTRANS_PAYMENT_KLIK_BCA;
             break;
-        case midtranspaymentfeatureBCAKlikPay:
+        case MidtransPaymentFeatureBCAKlikPay:
             paymentMethodSelected = MIDTRANS_PAYMENT_BCA_KLIKPAY;
-            break;
-        case  MidtransPaymentFeatureMandiriClickPay:
-            paymentMethodSelected = MIDTRANS_PAYMENT_MANDIRI_CLICKPAY;
             break;
         case  MidtransPaymentFeatureCIMBClicks:
             paymentMethodSelected = MIDTRANS_PAYMENT_CIMB_CLICKS;
             break;
-        case MidtransPaymentFeatureMandiriEcash:
-            paymentMethodSelected = MIDTRANS_PAYMENT_MANDIRI_ECASH;
-            break;
-        case MidtransPaymentFeatureTelkomselEcash:
-            paymentMethodSelected = MIDTRANS_PAYMENT_TELKOMSEL_CASH;
-            break;
-        case MidtransPaymentFeatureXLTunai:
-            paymentMethodSelected = MIDTRANS_PAYMENT_XL_TUNAI;
-            break;
-        case MidtransPaymentFeatureIndosatDompetku:
-            paymentMethodSelected = MIDTRANS_PAYMENT_INDOSAT_DOMPETKU;
-            break;
         case MidtransPaymentFeatureIndomaret:
             paymentMethodSelected = MIDTRANS_PAYMENT_INDOMARET;
             break;
-        case MidtransPyamentFeatureDanamonOnline:
+        case MidtransPaymentFeatureAlfamart:
+            paymentMethodSelected = MIDTRANS_PAYMENT_ALFAMART;
+            break;
+        case MidtransPaymentFeatureDanamonOnline:
             paymentMethodSelected = MIDTRANS_PAYMENT_DANAMON_ONLINE;
-            break;
-        case MidtransPaymentFeatureKiosON:
-            paymentMethodSelected = MIDTRANS_PAYMENT_KIOS_ON;
-            break;
-        case MidtransPaymentFeatureGCI:
-            paymentMethodSelected = MIDTRANS_PAYMENT_GCI;
-            break;
-        case MidtransPaymentCreditCardForm:
-            paymentMethodSelected = MIDTRANS_CREDIT_CARD_FORM;
             break;
         case MidtransPaymentFeatureBRIEpay:
             paymentMethodSelected = MIDTRANS_PAYMENT_BRI_EPAY;
@@ -98,6 +82,9 @@
         case MidtransPaymentFeatureBankTransferBNIVA:
             paymentMethodSelected = MIDTRANS_PAYMENT_BNI_VA;
             break;
+        case MidtransPaymentFeatureBankTransferBRIVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_BRI_VA;
+            break;
         case MidtransPaymentFeatureBankTransferBCAVA:
             paymentMethodSelected = MIDTRANS_PAYMENT_BCA_VA;
             break;
@@ -112,10 +99,11 @@
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token paymentMethodName:nil];
     vc.paymentMethodSelected = paymentMethodSelected;
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
     return self;
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+- (void)viewWillAppear:(BOOL)animated{
     if ([[MidtransConfig shared] environment]!=MidtransServerEnvironmentProduction) {
         UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
         
@@ -126,6 +114,9 @@
         
         [currentWindow addSubview:badgeImageView];
     }
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
     self.navigationBar.translucent = false;
     // to remove 1 px border below nav bar
     
@@ -141,6 +132,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:TRANSACTION_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionDeny:) name:TRANSACTION_DENY object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionPending:) name:TRANSACTION_PENDING object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionCanceled:) name:TRANSACTION_CANCELED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCardSuccess:) name:SAVE_CARD_SUCCESS object:nil];
@@ -167,6 +159,13 @@
     [self dismissDemoBadge];
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentPending:)]) {
         [self.paymentDelegate paymentViewController:self paymentPending:sender.userInfo[TRANSACTION_RESULT_KEY]];
+    }
+}
+
+- (void)transactionDeny:(NSNotification *)sender {
+    [self dismissDemoBadge];
+    if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentDeny:)]) {
+        [self.paymentDelegate paymentViewController:self paymentDeny:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 

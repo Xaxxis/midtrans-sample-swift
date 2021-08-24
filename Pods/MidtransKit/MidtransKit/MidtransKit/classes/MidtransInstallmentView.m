@@ -32,7 +32,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MidtransInstallmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"installmentCell" forIndexPath:indexPath];
     if (self.installmentData.count){
-          [cell configureInstallmentWithText:[NSString stringWithFormat:@"%@",self.installmentData[indexPath.row]]];
+        [cell configureInstallmentWithText:[NSString stringWithFormat:@"%@",self.installmentData[indexPath.row]] isInstallmentRquired:self.isInstallmentRequired];
     }
     else {
       [cell configurePointWithThext:(NSNumber *)self.pointData[indexPath.row]];
@@ -76,11 +76,12 @@
     self.installmentCurrentIndex = self.pointData.count;
     [self.installmentCollectionView reloadData];
 }
-- (void)configureInstallmentView:(NSArray *)installmentContent {
+- (void)configureInstallmentView:(NSArray *)installmentContent isInstallmentRequired:(BOOL)isInstallmentRequired {
     
     __weak __typeof(self)weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.installmentData = installmentContent;
+        self.isInstallmentRequired = isInstallmentRequired;
         
         if (!weakSelf) return;
         __strong __typeof(weakSelf)strongSelf = weakSelf;
@@ -95,7 +96,7 @@
         self.nextButton.enabled = YES;
         [self selectedIndex:self.installmentCurrentIndex];
         NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
-        [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        [self scrollInstallmentAtIndexPath:indexpath];
     }
     else {
        self.prevButton.enabled = NO;
@@ -107,10 +108,18 @@
             self.prevButton.enabled = YES;
         [self selectedIndex:self.installmentCurrentIndex];
         NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
-        [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        [self scrollInstallmentAtIndexPath:indexpath];
     }
     else {
      self.nextButton.enabled = NO;
+    }
+}
+- (void)scrollInstallmentAtIndexPath:(NSIndexPath *)indexPath{
+    if (@available(iOS 14.0, *)) {
+        UICollectionViewLayoutAttributes *attributes = [self.installmentCollectionView layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:self.installmentCurrentIndex inSection:0]];
+        [self.installmentCollectionView setContentOffset:CGPointMake(attributes.frame.origin.x, attributes.frame.origin.y + 8) animated:YES];
+    } else{
+        [self.installmentCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
 }
 - (void)resetInstallmentIndex {

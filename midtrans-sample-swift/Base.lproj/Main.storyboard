@@ -36,17 +36,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="snapManualField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="AU9-x8-8wY"/>
-                                    <action selector="snapTokenField:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="4Gw-db-hLf"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiw-s3-CC8">
                                 <rect key="frame" x="147" y="215" width="121" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Open Snap Token"/>
                                 <connections>
-                                    <action selector="snapManualToken:" destination="BYZ-38-t0r" eventType="primaryActionTriggered" id="TJe-7A-kqG"/>
+                                    <action selector="openSnapToken:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e8M-Wh-Umk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKu-9T-eUI">
@@ -64,7 +60,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="snapTokenField" destination="195-4Z-zRh" id="NjD-nd-yEv"/>
+                        <outlet property="snapTokenField" destination="195-4Z-zRh" id="FzH-qd-Qkw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

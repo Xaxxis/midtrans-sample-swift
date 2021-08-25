@@ -10,30 +10,10 @@ import UIKit
 import MidtransKit
 import WebKit
 
-class ViewController: UIViewController, MidtransUIPaymentViewControllerDelegate {
+class ViewController: UIViewController {
     
     @IBOutlet weak var snapTokenField: UITextField!
     
-    
-    func paymentViewController(_ viewController: MidtransUIPaymentViewController!, paymentPending result: MidtransTransactionResult!) {
-        
-    }
-    
-    func paymentViewController(_ viewController: MidtransUIPaymentViewController!, paymentDeny result: MidtransTransactionResult!) {
-        
-    }
-    
-    func paymentViewController(_ viewController: MidtransUIPaymentViewController!, paymentSuccess result: MidtransTransactionResult!) {
-        
-    }
-    
-    func paymentViewController(_ viewController: MidtransUIPaymentViewController!, paymentFailed error: Error!) {
-        
-    }
-    
-    func paymentViewController_paymentCanceled(_ viewController: MidtransUIPaymentViewController!) {
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +22,12 @@ class ViewController: UIViewController, MidtransUIPaymentViewControllerDelegate 
     
     @IBAction func onButtonClick(_ sender: Any) {
         payTransaction()
+    }
+    
+
+    @IBAction func openSnapToken(_ sender: Any) {
+        let snapToken = snapTokenField.text!
+        payWithToken(snapToken: snapToken)
     }
     
     /*
@@ -92,7 +78,6 @@ class ViewController: UIViewController, MidtransUIPaymentViewControllerDelegate 
         { (response, error) in if (response != nil) {
                 //show PaymentUI
                 let vc = MidtransUIPaymentViewController.init(token: response)
-                vc?.paymentDelegate = self
                 self.present(vc!, animated: true, completion: nil)
             } else {
                 //handle
@@ -123,7 +108,6 @@ class ViewController: UIViewController, MidtransUIPaymentViewControllerDelegate 
             if (response != nil) {
                 //show Payment UI
                 let vc = MidtransUIPaymentViewController.init(token: response)
-                vc?.paymentDelegate = self
                 self.present(vc!, animated: true, completion: nil)
             } else {
             //handle error
@@ -132,23 +116,4 @@ class ViewController: UIViewController, MidtransUIPaymentViewControllerDelegate 
         }
     }
     
-    
-    @IBAction func snapManualToken(_ sender: UIButton) {
-        MidtransConfig.shared().callbackSchemeURL = "myApp://";
-        MidtransConfig.shared().shopeePayCallbackURL = "myApp://"
-        
-        let snapToken: String = snapTokenField.text!
-        
-        MidtransMerchantClient.shared().requestTransacation(withCurrentToken: snapToken) { (response, error) in
-            if (response != nil) {
-                //show Payment UI
-                let vc = MidtransUIPaymentViewController.init(token: response)
-                vc?.paymentDelegate = self
-                self.present(vc!, animated: true, completion: nil)
-            } else {
-                //handle error
-                print("error \(String(describing: error))")
-            }
-        }
-    }
 }
